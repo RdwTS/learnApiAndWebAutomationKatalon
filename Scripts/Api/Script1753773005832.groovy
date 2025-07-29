@@ -70,6 +70,22 @@ def inpState = inputData.getValue('state',1)
 def inpCountry = inputData.getValue('country',1)
 def inpTimezone = inputData.getValue('timezone',1)
 
+	KeywordUtil.logInfo("Data input" +
+		" => Title: " + inpTitle +
+		", First Name: " + inpFirstName +
+		", Last Name: " + inpLastName +
+		", Gender: " + inpGender +
+		", Email: " + inpEmail +
+		", DOB: " + inpDateOfBirth +
+		", Phone: " + inpPhone +
+		", Register Date: " + inpRegisterDate +
+		", Updated Date: " + inpUpdatedDate +
+		", Street: " + inpStreet +
+		", City: " + inpCity +
+		", State: " + inpState +
+		", Country: " + inpCountry +
+		", Timezone: " + inpTimezone)
+
 RequestObject createUser = findTestObject('Object Repository/Postman/Create User full', [
 		('title')        : inpTitle,
 		('firstName')    : inpFirstName,
