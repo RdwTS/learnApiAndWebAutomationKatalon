@@ -33,14 +33,6 @@
       <value>application/json</value>
       <webElementGuid>7ec32c25-23a6-4ef7-aae9-5d10a5373951</webElementGuid>
    </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Accept</name>
-      <type>Main</type>
-      <value>application/json</value>
-      <webElementGuid>6102c814-4a9f-49cc-a54e-83d8a3b4ba07</webElementGuid>
-   </httpHeaderProperties>
    <katalonVersion>9.5.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>

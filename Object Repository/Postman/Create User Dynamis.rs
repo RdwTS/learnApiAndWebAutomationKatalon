@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Create User full base</name>
+   <name>Create User Dynamis</name>
    <tag></tag>
-   <elementGuidId>485ab763-3ea5-41c4-8df5-ab0a26b11855</elementGuidId>
+   <elementGuidId>400e9427-4f60-4d52-9f7f-c460fee201f4</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
@@ -12,7 +12,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\t\&quot;title\&quot; \t\t: \&quot;mr\&quot;,\n\t\&quot;firstName\&quot; \t: \&quot;ridwan\&quot;,\n\t\&quot;lastName\&quot; \t\t: \&quot;setiawan\&quot;,\n    \&quot;gender\&quot; \t\t: \&quot;male\&quot;,\n    \&quot;email\&quot; \t\t: \&quot;ridwan.setiawan@katalon.com\&quot;,\n    \&quot;dateOfBirth\&quot;\t: \&quot;1999-06-07\&quot;,\n    \&quot;phone\&quot; \t\t: \&quot;081213717544\&quot;,\n    \&quot;registerDate\&quot;\t: \&quot;2025-07-29\&quot;, \n    \&quot;updatedDate\&quot;\t: \&quot;2025-07-29\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n\t\&quot;firstName\&quot; \t: \&quot;${firstName}\&quot;,\n\t\&quot;lastName\&quot; \t\t: \&quot;${lastName}\&quot;,\n    \&quot;email\&quot; \t\t: \&quot;${email}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -65,100 +65,23 @@
    <variables>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>f3ba29a7-b5de-4a17-abf7-11520b677577</id>
-      <masked>false</masked>
-      <name>title</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>9f8f242f-e3a6-4595-88e4-8d55c71176fd</id>
-      <masked>false</masked>
-      <name>firstName</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>5e0c8075-2b29-4c2b-bb67-e22eaf4df0bf</id>
+      <id>de32bc90-705d-40a3-ae95-2736056b8ba0</id>
       <masked>false</masked>
       <name>lastName</name>
    </variables>
    <variables>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>2e947e4a-ab96-44e7-85bd-fae6518246f6</id>
+      <id>6311b038-b18c-447a-80e4-40ac6a70aa5d</id>
       <masked>false</masked>
-      <name>gender</name>
+      <name>firstName</name>
    </variables>
    <variables>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>e61d7aa6-b77e-4164-9fa9-b68157b0a363</id>
+      <id>3af55731-afb2-4a2d-b4cb-9a6bc0796f9a</id>
       <masked>false</masked>
       <name>email</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>896d06ff-f53c-4ffc-9e24-b45e6d83d8d5</id>
-      <masked>false</masked>
-      <name>dateOfBirth</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>862b74dd-706f-4f18-b855-28d43fb0e88d</id>
-      <masked>false</masked>
-      <name>phone</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>d86d2d4d-8bb5-405b-ba8f-4696989a41b1</id>
-      <masked>false</masked>
-      <name>registerDate</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>6b6e5bbb-cd03-4bf7-bd3f-6683c6345f8b</id>
-      <masked>false</masked>
-      <name>updatedDate</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>f08a2bc0-0155-443c-b73b-5c842a545f8d</id>
-      <masked>false</masked>
-      <name>street</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>3be07231-a4cc-41f2-a150-6d411976ca39</id>
-      <masked>false</masked>
-      <name>city</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>80cbcafa-26a6-472e-9fd8-90e79400c1d7</id>
-      <masked>false</masked>
-      <name>state</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>7a27b2f7-8e34-4a29-8592-bc35d3f3a607</id>
-      <masked>false</masked>
-      <name>country</name>
-   </variables>
-   <variables>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>097e1833-8d6c-4392-b180-615a5ba051b8</id>
-      <masked>false</masked>
-      <name>timezone</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

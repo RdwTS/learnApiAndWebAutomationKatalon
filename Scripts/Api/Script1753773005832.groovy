@@ -19,6 +19,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import com.kms.katalon.core.util.KeywordUtil
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import groovy.json.JsonSlurper as JsonSlurper
+
 
 //create user full info
 TestData inputData = findTestData("Data Files/Post")
@@ -55,20 +57,20 @@ for(int i= 1; i <= inputData.getRowNumbers() ; i++) {
 		", Timezone: " + timezone)
 }
 
-def inpTitle = inputData.getValue('title',1)
-def inpFirstName = inputData.getValue('firstName',1)
-def inpLastName = inputData.getValue('lastName',1)
-def inpGender = inputData.getValue('gender',1)
-def inpEmail = inputData.getValue('email',1)
-def inpDateOfBirth = inputData.getValue('dateOfBirth',1)
-def inpPhone = inputData.getValue('phone',1)
-def inpRegisterDate = inputData.getValue('registerDate',1)
-def inpUpdatedDate = inputData.getValue('updatedDate',1)
-def inpStreet = inputData.getValue('street',1)
-def inpCity = inputData.getValue('city',1)
-def inpState = inputData.getValue('state',1)
-def inpCountry = inputData.getValue('country',1)
-def inpTimezone = inputData.getValue('timezone',1)
+String inpTitle = inputData.getValue('title',1)
+String inpFirstName = inputData.getValue('firstName',1)
+String inpLastName = inputData.getValue('lastName',1)
+String inpGender = inputData.getValue('gender',1)
+String inpEmail = inputData.getValue('email',1)
+String inpDateOfBirth = inputData.getValue('dateOfBirth',1)
+String inpPhone = inputData.getValue('phone',1)
+String inpRegisterDate = inputData.getValue('registerDate',1)
+String inpUpdatedDate = inputData.getValue('updatedDate',1)
+String inpStreet = inputData.getValue('street',1)
+String inpCity = inputData.getValue('city',1)
+String inpState = inputData.getValue('state',1)
+String inpCountry = inputData.getValue('country',1)
+String inpTimezone = inputData.getValue('timezone',1)
 
 	KeywordUtil.logInfo("Data input" +
 		" => Title: " + inpTitle +
@@ -85,8 +87,9 @@ def inpTimezone = inputData.getValue('timezone',1)
 		", State: " + inpState +
 		", Country: " + inpCountry +
 		", Timezone: " + inpTimezone)
-
-RequestObject createUser = findTestObject('Object Repository/Postman/Create User full', [
+	
+RequestObject createUser = findTestObject('Object Repository/Postman/Create User full', 
+	[
 		('title')        : inpTitle,
 		('firstName')    : inpFirstName,
 		('lastName')     : inpLastName,
@@ -104,10 +107,17 @@ RequestObject createUser = findTestObject('Object Repository/Postman/Create User
 	])
 
 ResponseObject createUserResp = WS.sendRequestAndVerify(createUser, FailureHandling.STOP_ON_FAILURE)
-KeywordUtil.logInfo('HEADER\n' + createUserResp.getHeaderFields() + "\n\nBODY\n" + createUserResp.getResponseBodyContent())
+	KeywordUtil.logInfo('HEADER\n' + createUserResp.getHeaderFields() + "\n\nBODY\n" + createUserResp.getResponseBodyContent())
+
+// set parameter idStatic
+JsonSlurper jsonSluper = new JsonSlurper()
+def jsonResp = jsonSluper.parseText(createUserResp.getResponseText())
+	KeywordUtil.logInfo('RESPONSE jsonResp: ' + jsonResp.toString())
+def idDynamis = jsonResp.id //declare at variables testcase
+	KeywordUtil.logInfo('idDynamis : ' + idDynamis)
 
 //get single user by id
-def idDynamis = "60d0fe4f5311236168a109e2"
+//def idDynamis = "60d0fe4f5311236168a109e2"
 
 RequestObject singleUserById = findTestObject('Object Repository/Postman/Get single user by id dynamis',[
 		"id" : idDynamis
@@ -115,7 +125,7 @@ RequestObject singleUserById = findTestObject('Object Repository/Postman/Get sin
 
 ResponseObject singleUserByIdResp =WS.sendRequestAndVerify(singleUserById, FailureHandling.STOP_ON_FAILURE)
 
-KeywordUtil.logInfo('HEADER\n' + singleUserByIdResp.getHeaderFields() + "\n\nBODY\n" + singleUserByIdResp.getResponseBodyContent())
+	KeywordUtil.logInfo('HEADER\n' + singleUserByIdResp.getHeaderFields() + "\n\nBODY\n" + singleUserByIdResp.getResponseBodyContent())
 
 
 
