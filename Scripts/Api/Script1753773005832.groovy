@@ -21,6 +21,8 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import groovy.json.JsonSlurper as JsonSlurper
 
+Integer statusCode = null
+def jsonResp = null
 
 //create user full info
 TestData inputData = findTestData("Data Files/Post")
@@ -107,14 +109,24 @@ RequestObject createUser = findTestObject('Object Repository/Postman/Create User
 	])
 
 ResponseObject createUserResp = WS.sendRequestAndVerify(createUser, FailureHandling.STOP_ON_FAILURE)
-	KeywordUtil.logInfo('HEADER\n' + createUserResp.getHeaderFields() + "\n\nBODY\n" + createUserResp.getResponseBodyContent())
-
-// set parameter idStatic
-JsonSlurper jsonSluper = new JsonSlurper()
-def jsonResp = jsonSluper.parseText(createUserResp.getResponseText())
-	KeywordUtil.logInfo('RESPONSE jsonResp: ' + jsonResp.toString())
-def idDynamis = jsonResp.id //declare at variables testcase
-	KeywordUtil.logInfo('idDynamis : ' + idDynamis)
+		KeywordUtil.logInfo('HEADER\n' + createUserResp.getHeaderFields() + "\n\nBODY\n" + createUserResp.getResponseBodyContent())
+	 statusCode = WS.getResponseStatusCode(createUserResp)
+	
+	// set parameter idStatic
+	JsonSlurper jsonSluper = new JsonSlurper()
+	 jsonResp = jsonSluper.parseText(createUserResp.getResponseText())
+	
+	//validate data notnull & response first name same with param
+	def idDynamis = ""
+	if (jsonResp != null && jsonResp.firstName == inpFirstName) {
+		KeywordUtil.logInfo('RESPONSE jsonResp: ' + jsonResp.toString())
+		idDynamis = jsonResp.id //declare at variables testcase
+			KeywordUtil.logInfo('idDynamis : ' + idDynamis)
+		KeywordUtil.logInfo("API Pass")
+		}else {
+			KeywordUtil.logInfo("API Failed 400")
+			KeywordUtil.markFailedAndStop("Expected status code 200 but got: " + statusCode)
+		}
 
 //get single user by id
 	
@@ -126,7 +138,18 @@ RequestObject singleUserById = findTestObject('Object Repository/Postman/Get sin
 ResponseObject singleUserByIdResp =WS.sendRequestAndVerify(singleUserById, FailureHandling.STOP_ON_FAILURE)
 
 	KeywordUtil.logInfo('HEADER\n' + singleUserByIdResp.getHeaderFields() + "\n\nBODY\n" + singleUserByIdResp.getResponseBodyContent())
-
+	//validate data notnull & response id same with id before
+	 statusCode = WS.getResponseStatusCode(singleUserByIdResp)
+	 jsonResp = jsonSluper.parseText(singleUserByIdResp.getResponseText())	
+	 
+	if (jsonResp != null && jsonResp.id == idDynamis) {
+		KeywordUtil.logInfo('RESPONSE jsonResp: ' + jsonResp.toString())		
+		KeywordUtil.logInfo("API Pass")
+		}else {
+			KeywordUtil.logInfo("API Failed 400")
+			KeywordUtil.markFailedAndStop("Expected id "+ idDynamis + "but got: " + jsonResp.id)
+		}
+	
 // update User by id
 def updLastName = "tegar"
 def updPhone = "081122334455"
@@ -139,9 +162,21 @@ RequestObject updateUserById =  findTestObject('Object Repository/Postman/Update
 ResponseObject updateUserByIdResp = WS.sendRequestAndVerify(updateUserById, FailureHandling.STOP_ON_FAILURE)
 
 	KeywordUtil.logInfo('HEADER\n' + updateUserByIdResp.getHeaderFields() + "\n\nBODY\n" + updateUserByIdResp.getResponseBodyContent())
-
-// delete User by id
 	
+	//validate data notnull & response status code 
+	statusCode = WS.getResponseStatusCode(updateUserByIdResp)
+	jsonResp = jsonSluper.parseText(updateUserByIdResp.getResponseText())
+	
+   if (jsonResp != null && statusCode == 200) {
+	   KeywordUtil.logInfo('RESPONSE jsonResp: ' + jsonResp.toString())
+	   KeywordUtil.logInfo("API Pass")
+	   }else {
+		   KeywordUtil.logInfo("API Failed 400")
+		   KeywordUtil.markFailedAndStop("Expected status code 200 but got: " + statusCode )
+	   }
+	   
+	   
+// delete User by id	
 RequestObject deleteUserById =findTestObject('Object Repository/Postman/Delete User dynamis' ,[
 	('id')	: idDynamis
 	])
@@ -149,4 +184,14 @@ RequestObject deleteUserById =findTestObject('Object Repository/Postman/Delete U
 ResponseObject deleteUserByIdResp = WS.sendRequestAndVerify(deleteUserById, FailureHandling.STOP_ON_FAILURE)
 	KeywordUtil.logInfo('HEADER\n' + deleteUserByIdResp.getHeaderFields() + "\n\nBODY\n" + deleteUserByIdResp.getResponseBodyContent())
 	
+	//validate data notnull & response id same with id before
+	statusCode = WS.getResponseStatusCode(deleteUserByIdResp)
+	jsonResp = jsonSluper.parseText(deleteUserByIdResp.getResponseText())
 	
+   if (jsonResp != null && statusCode == 200) {
+	   KeywordUtil.logInfo('RESPONSE jsonResp: ' + jsonResp.toString())
+	   KeywordUtil.logInfo("API Pass")
+	   }else {
+		   KeywordUtil.logInfo("API Failed 400")
+		   KeywordUtil.markFailedAndStop("Expected status code 200 but got: " + statusCode )
+	   }
