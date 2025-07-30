@@ -42,7 +42,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>DELETE</restRequestMethod>
-   <restUrl>${URL}/data/v1/user/6889c3c0f365b2764e1e032c</restUrl>
+   <restUrl>${URL}/data/v1/user/6889ccf1f365b27d8d1e0960</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

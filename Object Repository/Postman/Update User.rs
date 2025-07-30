@@ -12,7 +12,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\t\&quot;lastName\&quot; : \&quot;tegarr\&quot;,\n    \&quot;phone\&quot; : \&quot;081299999999\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n\t\&quot;firstName\&quot; : \&quot;tegarr\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -46,7 +46,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>${URL}/data/v1/user/6889c3c0f365b2764e1e032c</restUrl>
+   <restUrl>${URL}/data/v1/user/6889c96ef365b2faea1e0923</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
