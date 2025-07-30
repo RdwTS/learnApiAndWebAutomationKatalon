@@ -117,8 +117,8 @@ def idDynamis = jsonResp.id //declare at variables testcase
 	KeywordUtil.logInfo('idDynamis : ' + idDynamis)
 
 //get single user by id
+	
 //def idDynamis = "60d0fe4f5311236168a109e2"
-
 RequestObject singleUserById = findTestObject('Object Repository/Postman/Get single user by id dynamis',[
 		"id" : idDynamis
 	])
@@ -127,5 +127,26 @@ ResponseObject singleUserByIdResp =WS.sendRequestAndVerify(singleUserById, Failu
 
 	KeywordUtil.logInfo('HEADER\n' + singleUserByIdResp.getHeaderFields() + "\n\nBODY\n" + singleUserByIdResp.getResponseBodyContent())
 
+// update User by id
+def updLastName = "tegar"
+def updPhone = "081122334455"
 
+RequestObject updateUserById =  findTestObject('Object Repository/Postman/Update User Dynamis' ,[
+	('id')			: idDynamis,
+	('lastName')	: updLastName,
+	('phone')		: updPhone
+	])
+ResponseObject updateUserByIdResp = WS.sendRequestAndVerify(updateUserById, FailureHandling.STOP_ON_FAILURE)
 
+	KeywordUtil.logInfo('HEADER\n' + updateUserByIdResp.getHeaderFields() + "\n\nBODY\n" + updateUserByIdResp.getResponseBodyContent())
+
+// delete User by id
+	
+RequestObject deleteUserById =findTestObject('Object Repository/Postman/Delete User dynamis' ,[
+	('id')	: idDynamis
+	])
+
+ResponseObject deleteUserByIdResp = WS.sendRequestAndVerify(deleteUserById, FailureHandling.STOP_ON_FAILURE)
+	KeywordUtil.logInfo('HEADER\n' + deleteUserByIdResp.getHeaderFields() + "\n\nBODY\n" + deleteUserByIdResp.getResponseBodyContent())
+	
+	

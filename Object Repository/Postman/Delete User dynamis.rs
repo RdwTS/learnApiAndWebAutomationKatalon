@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Update User</name>
+   <name>Delete User dynamis</name>
    <tag></tag>
-   <elementGuidId>5b11e311-7341-45e0-a912-76d2af44bd75</elementGuidId>
+   <elementGuidId>c3b57e45-76ea-409a-a194-95ff44dca8dd</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>false</autoUpdateContent>
+   <autoUpdateContent>true</autoUpdateContent>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
-   <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\t\&quot;lastName\&quot; : \&quot;tegarr\&quot;,\n    \&quot;phone\&quot; : \&quot;081299999999\&quot;\n}&quot;,
-  &quot;contentType&quot;: &quot;text/plain&quot;,
-  &quot;charset&quot;: &quot;UTF-8&quot;
-}</httpBodyContent>
-   <httpBodyType>text</httpBodyType>
+   <httpBodyContent></httpBodyContent>
+   <httpBodyType></httpBodyType>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>app-id</name>
       <type>Main</type>
       <value>63a804408eb0cb069b57e43a</value>
-      <webElementGuid>e7a613e0-1318-426d-98b5-2bccab99f249</webElementGuid>
+      <webElementGuid>bfeae647-093e-45b1-94d0-7de57d48ca5e</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -31,7 +27,7 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>86ccc48d-1b00-4ada-a96b-7c29ccc038fd</webElementGuid>
+      <webElementGuid>77a86a11-1ba4-41da-afc8-3de51743ed4f</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -39,14 +35,14 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>d48d9568-0d7e-4995-8d00-eb2454d792af</webElementGuid>
+      <webElementGuid>e7350f80-8896-45b6-be45-cf383ea34a09</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>9.5.0</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
-   <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>${URL}/data/v1/user/6889c3c0f365b2764e1e032c</restUrl>
+   <restRequestMethod>DELETE</restRequestMethod>
+   <restUrl>${URL}/data/v1/user/${id}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -58,9 +54,16 @@
    <variables>
       <defaultValue>GlobalVariable.URL</defaultValue>
       <description></description>
-      <id>66bf6f2f-7011-476c-a097-1ab340d7d5ca</id>
+      <id>4e02d770-9437-4329-a38c-8e3a8ca64721</id>
       <masked>false</masked>
       <name>URL</name>
+   </variables>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>048899da-1776-4d3c-80b0-5834ea4035c1</id>
+      <masked>false</masked>
+      <name>id</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

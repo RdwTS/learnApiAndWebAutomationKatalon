@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Update User</name>
+   <name>Update User Dynamis</name>
    <tag></tag>
-   <elementGuidId>5b11e311-7341-45e0-a912-76d2af44bd75</elementGuidId>
+   <elementGuidId>6e8e6e4f-788c-4bc2-abd2-72e7eccffb00</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
@@ -12,7 +12,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n\t\&quot;lastName\&quot; : \&quot;tegarr\&quot;,\n    \&quot;phone\&quot; : \&quot;081299999999\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n\t\&quot;lastName\&quot; : \&quot;${lastName}\&quot;,\n    \&quot;phone\&quot; : \&quot;${phone}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;text/plain&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -46,7 +46,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>${URL}/data/v1/user/6889c3c0f365b2764e1e032c</restUrl>
+   <restUrl>${URL}/data/v1/user/${id}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -61,6 +61,27 @@
       <id>66bf6f2f-7011-476c-a097-1ab340d7d5ca</id>
       <masked>false</masked>
       <name>URL</name>
+   </variables>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>c611cebf-ad4c-41ce-99eb-7d6f411d5d66</id>
+      <masked>false</masked>
+      <name>lastName</name>
+   </variables>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>a19665e2-7c07-48bb-9c6f-cdfcbf716111</id>
+      <masked>false</masked>
+      <name>phone</name>
+   </variables>
+   <variables>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>edc22428-6dd3-4687-ad8e-65c670a41b63</id>
+      <masked>false</masked>
+      <name>id</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 

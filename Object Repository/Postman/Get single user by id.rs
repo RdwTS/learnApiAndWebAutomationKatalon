@@ -26,7 +26,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${URL}/data/v1/user/68887db2e181cdb624465eba</restUrl>
+   <restUrl>${URL}/data/v1/user/6889c68bf365b243c11e08df</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
