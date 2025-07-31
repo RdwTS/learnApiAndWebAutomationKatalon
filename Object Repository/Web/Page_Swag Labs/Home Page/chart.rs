@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_1</name>
+   <name>chart</name>
    <tag></tag>
    <elementGuidId>8be561eb-aa6c-43a4-97ae-d34d955ed950</elementGuidId>
    <selectorCollection>
