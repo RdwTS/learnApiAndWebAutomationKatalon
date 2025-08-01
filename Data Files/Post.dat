@@ -7,9 +7,9 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>cd92d204-616c-4a3e-ae13-c0cd794b3351</dataFileGUID>
-   <dataSourceUrl>D:\Ridwan\Learn\Katalon\Data Files ridwan\convert.xlsx</dataSourceUrl>
+   <dataSourceUrl>Data Files Local/data Post create User.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
-   <isInternalPath>false</isInternalPath>
+   <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
    <sheetName>Sheet 1</sheetName>

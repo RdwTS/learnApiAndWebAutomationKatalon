@@ -19,8 +19,6 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.maximizeWindow()
-
 WebUI.navigateToUrl('https://www.saucedemo.com/')
 
 WebUI.setText(findTestObject('Web/Page_Swag Labs/login Page/input_Swag Labs_user-name'), 'standard_user')
@@ -37,3 +35,28 @@ WebUI.click(findTestObject('Web/Page_Swag Labs/Home Page/button_Add to cart'))
 
 WebUI.verifyElementText(findTestObject('Web/Page_Swag Labs/Home Page/chart'), '1')
 
+WebUI.click(findTestObject('Web/Page_Swag Labs/Home Page/chart'))
+
+WebUI.verifyElementText(findTestObject('Web/Page_Swag Labs/Chart Page/Label_Your Cart'), 'Your Cart')
+
+WebUI.verifyElementVisible(findTestObject('Web/Page_Swag Labs/Chart Page/countainer_product'))
+
+WebUI.click(findTestObject('Web/Page_Swag Labs/Chart Page/button_Checkout'))
+
+WebUI.verifyElementText(findTestObject('Web/Page_Swag Labs/Checkout/Label_Checkout Your Information'), 'Checkout: Your Information')
+
+WebUI.setText(findTestObject('Web/Page_Swag Labs/Checkout/input_Checkout Your Information_firstName'), 'Ridwan')
+
+WebUI.setText(findTestObject('Web/Page_Swag Labs/Checkout/input_Checkout Your Information_lastName'), 'Tegar')
+
+WebUI.setText(findTestObject('Web/Page_Swag Labs/Checkout/input_Checkout Your Information_postalCode'), '12070')
+
+WebUI.click(findTestObject('Web/Page_Swag Labs/Checkout/button_continue'))
+
+WebUI.verifyElementText(findTestObject('Web/Page_Swag Labs/Checkout/Label_Checkout Overview'), 'Checkout: Overview')
+
+WebUI.click(findTestObject('Web/Page_Swag Labs/Checkout/button_Finish'))
+
+WebUI.verifyElementText(findTestObject('Web/Page_Swag Labs/Checkout/Label_Thank you for your order'), 'Thank you for your order!')
+
+WebUI.closeBrowser()
